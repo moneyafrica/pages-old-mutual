@@ -27,14 +27,18 @@ function App({props}) {
 
         <div className="h-screen content-center">
           <div className="w-2/3 md:w-1/2 lg:w-1/3 m-auto flex justify-center border-2 border-black rounded-lg p-10 bg-black/[.6] shadow-2xl">
-            <div className="flex-col space-y-3">
-              <p className="text-sm lg:text-xl font-bold text-white text-left pb-4">
-                Thank you, we received your consent letter. We will message you shortly with further information. <br/><br/>
-                Dankie vir u konsent dokument, ons gaan binnekort u boodskap vir verdere inligting.
-              </p>
-              <a className="w-full text-md lg:text-2xl p-4 font-bold text-black text-left border-2 border-black bg-green-600 text-center active:scale-95" href={downloadLink}>
-                Download Copy
-              </a>
+            <div className="flex-col space-y-5">
+              <div>
+                <p className="text-sm lg:text-xl font-bold text-white text-left pb-4">
+                  Thank you, we received your consent letter. We will message you shortly with further information. <br/><br/>
+                  Dankie vir u konsent dokument, ons gaan binnekort u boodskap vir verdere inligting.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <a className="w-full text-md lg:text-2xl p-4 font-bold text-black text-left border-2 border-black bg-green-600 text-center active:scale-95" href={downloadLink}>
+                  Download Copy
+                </a>
+              </div>
             </div>
           </div>
         </div>
