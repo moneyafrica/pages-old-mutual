@@ -1,7 +1,19 @@
+import React, { useState, useEffect } from 'react';
+
 function App({props}) {
-  const searchParams = new URLSearchParams(window.location.search);
-  const id = searchParams.get('id');
+  const [advisor, setAdvisor] = useState("");
+  const [downloadLink, setDownloadLink] = useState("");
   
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setAdvisor(searchParams.get('advisor'));
+
+    fetch('https://api.finqual.io/docuseal/completed',{
+      method: 'post',
+      body: JSON.stringify({ phoneNumber: searchParams.get('phoneNumber') }),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(resp=>resp.json()).then(resp=>setDownloadLink(resp.data.docUrl));
+  }, []);
   
   return (
     <>
@@ -20,17 +32,17 @@ function App({props}) {
                 Thank you, we received your consent letter. We will message you shortly with further information. <br/><br/>
                 Dankie vir u konsent dokument, ons gaan binnekort u boodskap vir verdere inligting.
               </p>
-              <button className="w-full text-md lg:text-2xl p-4 font-bold text-black text-left border-2 border-black bg-green-600 text-center active:scale-95">
+              <a className="w-full text-md lg:text-2xl p-4 font-bold text-black text-left border-2 border-black bg-green-600 text-center active:scale-95" href={downloadLink}>
                 Download Copy
-              </button>
+              </a>
             </div>
           </div>
         </div>
         
-        <div className="fixed bottom-0 w-full h-1/6 pt-10 pl-4">
+        <div className="fixed bottom-0 w-full h-1/6 py-5 pl-4">
           <div className="h-full w-11/12">
             <div className="w-2/3 border-2 border-black rounded-lg">
-              <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-black text-left bg-gray-400 p-2">Francois Basson</p>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-black text-left bg-gray-400 p-2">{advisor}</p>
             </div>
           </div>
         </div>
