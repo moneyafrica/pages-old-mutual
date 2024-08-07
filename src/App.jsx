@@ -34,10 +34,8 @@ function App({props}) {
             <div className="flex-col space-y-5">
               <div>
                 <p className="text-sm lg:text-lg font-bold text-black text-left pb-4">
-                  Thank you, we received your consent letter. We will message you shortly with further information. <br/>
-                  Beskou asb weer Whatsapp om die gesprek voort te sit. <br/><br/>
-                  Dankie vir u konsent dokument, ons gaan binnekort u boodskap vir verdere inligting.<br/>
-                  Please revert back to whatsapp to continue the conversation.
+                  Thank you for your consent - kindly revert back to whatsapp to continue. <br/><br/>
+                  Dankie vir u toestemming - vewys terug na whatsapp om voort te gaan. 
                 </p>
               </div>
               <div className="flex justify-center">
